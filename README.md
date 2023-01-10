@@ -1,2 +1,4 @@
 # WebDev
-Made with what I learnt from Coursera in my univ 4th sem
+
+Made with what I learnt= in my univ 4th sem
+Sort of something I don't have an affinity towards
