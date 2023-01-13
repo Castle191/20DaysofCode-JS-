@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tribonacci Numbers</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Calculate Tribonacci numbers</h1>
+    <p>This program will generate Tribonacci numbers upto 50</p>
+    <p>The tribonacci numbers are one of many generalized forms of the Fibonacci numbers, but instead of starting with two predetermined terms, the sequence starts with three predetermined terms and each term afterwards is the sum of the preceding three terms.</p>
+    <input type="number" id="tribonacci-input" placeholder="Enter number of terms upto 50">
+    <button id="generate-button">Generate</button>
+    <div id="output"></div>
+    <script>
+
+        let input = document.getElementById("tribonacci-input");
+        let button = document.getElementById("generate-button");
+        let output = document.getElementById("output");
+        button.addEventListener("click", function() {
+            let n = input.value;
+
+            if (n > 50) {
+                output.innerHTML = "Please enter a number less than 50";
+            }
+            else {
+                output.innerHTML = "";
+                for (let i = 0; i < n; i++) {
+                    output.innerHTML += tribonacci(i) + " ";
+                }
+            }
+        });
+
+        function tribonacci(n, a = 0, b = 0, c = 1) {
+            if (n === 0) return a;
+            if (n === 1) return b;
+            if (n === 2) return c;
+            for (let i = 3; i <= n; i++) {
+                let d = a + b + c;
+                a = b;
+                b = c;
+                c = d;
+            }
+            return c;
+        }
+    </script>
+</body>
+
+
+</html>
