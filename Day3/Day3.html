@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #333;
+  background-color: #F5F5DC;
+}
+    </style>
+</head>
+
+<body>
+    <h1>Pascal's Triangle</h1>
+    <div id="input-row">
+        <input type="number" id="pascal-input" placeholder="Enter the row of Pascal's triangle">
+    </div>
+    <button id="generate-button">Generate</button>
+    <div id="pascal-triangle"></div>
+    <script>
+        let input = document.getElementById("pascal-input");
+        let button = document.getElementById("generate-button");
+        let triangle = document.getElementById("pascal-triangle");
+        button.addEventListener("click", function() {
+            let row = input.value;
+            if (row > 30) {
+                triangle.innerHTML = "Please enter a number less than 30";
+            } else {
+                triangle.innerHTML = "";
+                let pascalTriangle = "";
+                let value = 1;
+                for (let j = 1; j < (row); j++) {
+                    pascalTriangle += " ";
+                }
+                for (let j = 0; j < row; j++) {
+                    pascalTriangle += " " + value;
+                    value = value * (row - j) / (j + 1);
+                }
+                triangle.innerHTML = pascalTriangle;
+            }
+        });
+    </script>
+</body>
+
+</html>
