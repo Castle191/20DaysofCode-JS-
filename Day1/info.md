@@ -4,4 +4,4 @@ Method Type : Sieve of Eratosthenes |
 Usage : Prime Numbers Calculation |
 Input type : Integer |
 Output Type : Integer |
-Limit : 150 |
+Limit : 150
