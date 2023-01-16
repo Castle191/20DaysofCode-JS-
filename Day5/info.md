@@ -1,4 +1,4 @@
-Day 4 |
+Day 5 |
 Topic of : Simple Arithmetic |
 LCM CALCULATOR |
 Usage : Calculation of lowest common multiple |
