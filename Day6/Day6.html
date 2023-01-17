@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HCF Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+    body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background-color: #F5F5DC;
+}
+    </style>
+  </head>
+  <body>
+    <h1>HCF Calculator</h1>
+    <form>
+      <label>Number 1:</label>
+      <input type="text" id="num1" placeholder="Enter first number">
+      <br>
+      <label>Number 2:</label>
+      <input type="text" id="num2" placeholder="Enter second number">
+      <br>
+      <label>Number 3:</label>
+      <input type="text" id="num3" placeholder="Enter third number">
+      <br>
+      <button type="button" onclick="calculateHCF()">Calculate HCF</button>
+    </form>
+    <p id="result"></p>
+    <script src="hcf.js"></script>
+  </body>
+</html>
