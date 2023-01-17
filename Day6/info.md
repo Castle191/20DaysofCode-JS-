@@ -1,4 +1,4 @@
-Day 5 |
+Day 6 |
 Topic of : Simple Arithmetic |
 HCF CALCULATOR |
 Usage : Calculation of highest common factor |
