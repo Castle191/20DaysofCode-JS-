@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Juggler's Sequence</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    
+        body {
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #333;
+        background-color: #F5F5DC;
+    }
+        </style>
+    <body>
+        <h1>Juggler's Sequence</h1>
+
+        <p>Enter a number between 1 and 50:</p>
+        <input type="number" id="inputNumber" min="1" max="50">
+
+        <button id="generateBtn" onclick="generateJugglerSequence()">Generate sequence</button>
+
+        <p id="output"></p>
+
+        <script>
+        function generateJugglerSequence() {
+            var output = "";
+            var input = document.getElementById("inputNumber").value;
+            var currentValue = input;
+            for (var i = 0; i < input; i++) {
+            output += currentValue + ", ";
+            currentValue = Math.floor(Math.sqrt(currentValue)) * Math.floor(Math.cbrt(currentValue));
+            }
+                document.getElementById("output").innerHTML = output;
+        }
+        </script>
+
+    </body>
+</html>
