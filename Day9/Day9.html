@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Divisibility Checker</title>
+    <title>Juggler's Sequence</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    
+        body {
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #333;
+        background-color: #F5F5DC;
+    }
+        </style>
+</head>
+
+<body>
+    <h1>Divisibility Checker</h1>
+    <form>
+        Divisor: <input type="number" id="divisor" required> Dividend: <input type="number" id="dividend" required>
+    </form>
+    <br>
+    <button onclick="checkDivisibility()">Check Divisibility</button>
+    <p id="output"></p>
+    <script>
+        function checkDivisibility() {
+            var divisor = document.getElementById("divisor").value;
+            var dividend = document.getElementById("dividend").value;
+            if (dividend % divisor == 0) {
+                document.getElementById("output").innerHTML = divisor + " is a divisor of " + dividend + ".";
+            } else {
+                document.getElementById("output").innerHTML = divisor + " is not a divisor of " + dividend + ".";
+            }
+        }
+    </script>
+</body>
+
+</html>
