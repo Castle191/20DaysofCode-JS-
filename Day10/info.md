@@ -1,4 +1,4 @@
-Day 9 |
+Day 10 |
 Topic of : Arithmetic |
 Stein's GCD algorithm |
 Input type : Positive Integer |
