@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GCD Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+    body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background-color: #F5F5DC;
+}
+    </style>
+  </head>
+  <body>
+    <h1>GCD Calculator</h1>
+    <form>
+      <label for="num1">Enter the first number:</label>
+      <input type="text" id="num1" name="num1">
+      <br>
+      <label for="num2">Enter the second number:</label>
+      <input type="text" id="num2" name="num2">
+      <br>
+      <br>
+      <button type="button" onclick="calculateGCD()">Calculate GCD</button>
+    </form>
+    <br>
+    <p id="output"></p>
+    <script>
+      function gcd(a, b) {
+        if (a === 0) return b;
+        if (b === 0) return a;
+        let shift = 0;
+        while (((a | b) & 1) === 0) {
+          a >>= 1;
+          b >>= 1;
+          shift++;
+        }
+        while ((a & 1) === 0) {
+          a >>= 1;
+        }
+        do {
+          while ((b & 1) === 0) {
+            b >>= 1;
+          }
+          if (a > b) {
+            [a, b] = [b, a];
+          }
+          b = b - a;
+        } while (b !== 0);
+        return a << shift;
+      }
+      function calculateGCD() {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        let output = document.getElementById("output");
+        output.innerHTML = "The GCD of " + num1 + " and " + num2 + " is " + gcd(num1, num2);
+      }
+    </script>
+  </body>
+</html>
