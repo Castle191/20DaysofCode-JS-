@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recaman's Sequence</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+  body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #333;
+  background-color: #F5F5DC;
+}
+    </style>
+</head>
+
+<body>
+
+    <label for="sequence_length">Enter the number of terms in the sequence: </label>
+    <input type="number" id="sequence_length" min="1">
+    <br><br>
+    <button onclick="generateRecamanSequence()">Generate Sequence</button>
+    <br><br>
+    <p id="output"></p>
+
+    <script>
+        function generateRecamanSequence() {
+            let output = document.getElementById("output");
+            let sequence_length = document.getElementById("sequence_length").value;
+            let sequence = [0];
+            let set = new Set([0]);
+            for (let i = 1; i <= sequence_length; i++) {
+                let n = sequence[i - 1] - i;
+                if (n > 0 && !set.has(n)) {
+                    sequence.push(n);
+                    set.add(n);
+                } else {
+                    n = sequence[i - 1] + i;
+                    sequence.push(n);
+                    set.add(n);
+                }
+            }
+            output.innerHTML = "Recaman's Sequence: " + sequence.join(", ");
+        }
+    </script>
+
+</body>
+
+</html>
