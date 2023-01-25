@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Newman-Conway sequence</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+body {
+font-family: 'Source Sans Pro', sans-serif;
+color: #333;
+background-color: #F5F5DC;
+}
+</style>
+</head>
+<body>
+
+<label for="sequence_length">Enter the number of terms in the sequence: </label>
+<input type="number" id="sequence_length" min="1">
+<br><br>
+<button onclick="generateNewmanConwaySequence()">Generate Sequence</button>
+<br><br>
+<p id="output"></p>
+
+<script>
+  function generateNewmanConwaySequence() {
+    let output = document.getElementById("output");
+    let sequence_length = document.getElementById("sequence_length").value;
+    let sequence = [1,1];
+    for (let i = 2; i < sequence_length; i++) {
+        let n = sequence[sequence[i-1]] + sequence[i-sequence[i-1]];
+        sequence.push(n);
+    }
+    output.innerHTML = "Newman-Conway sequence: " + sequence.join(", ");
+  }
+</script>
+
+</body>
+</html>
