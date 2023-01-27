@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pythagorean Triplets</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    
+    body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background-color: #F5F5DC;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Pythagorean Triplets</h1>
+    <form>
+        <label for="limit">Enter a limit:</label>
+        <input type="number" id="limit" name="limit">
+        <br><br>
+        <button type="button" onclick="generateTriplets()">Generate Triplets</button>
+    </form>
+    <br><br>
+    <div id="output"></div>
+    <script>
+        function generateTriplets() {
+            var limit = document.getElementById("limit").value;
+            var triplets = [];
+            for (var a = 1; a < limit; a++) {
+                for (var b = a; b < limit; b++) {
+                    for (var c = b; c < limit; c++) {
+                        if (a * a + b * b === c * c) {
+                            triplets.push([a, b, c]);
+                        }
+                    }
+                }
+            }
+            if (triplets.length === 0) {
+                document.getElementById("output").innerHTML = "No triplets found within the limit.";
+            } else {
+                document.getElementById("output").innerHTML = "Triplets: " + triplets.join(", ");
+            }
+        }
+    </script>
+</body>
+
+</html>
