@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Decimal to Binary</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    
+    body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background-color: #F5F5DC;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Decimal to Binary</h1>
+    <form>
+      <label for="decimal">Enter a decimal number:</label>
+      <input type="number" id="decimal" name="decimal">
+      <br><br>
+      <button type="button" onclick="convertToBinary()">Convert to Binary</button>
+    </form>
+    <br><br>
+    <div id="output"></div>
+    <script>
+      function convertToBinary() {
+        var decimal = document.getElementById("decimal").value;
+        var binary = "";
+        while (decimal > 0) {
+          var remainder = decimal % 2;
+          decimal = (decimal - remainder) / 2;
+          binary = remainder + binary;
+        }
+        document.getElementById("output").innerHTML = "Binary: " + binary;
+      }
+    </script>
+  </body>
+</html>
