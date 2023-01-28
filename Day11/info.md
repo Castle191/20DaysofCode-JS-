@@ -1,4 +1,4 @@
-Day 10 |
+Day 110 |
 Topic of : Arithmetic | 
 Prime Factorization | 
 Input type : Positive Integer | 
