@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smith Numbers</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    
+    body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background-color: #F5F5DC;
+    }
+    </style>
+</head>
+
+<body>
+
+    <label for="sequence_length">Enter the final sequence value: </label>
+    <input type="number" id="sequence_length" min="1">
+    <br><br>
+    <button onclick="generateSmithNumbers()">Generate Sequence</button>
+    <br><br>
+    <p id="output"></p>
+
+    <script>
+        function generateSmithNumbers() {
+            let output = document.getElementById("output");
+            let sequence_length = document.getElementById("sequence_length").value;
+            let sequence = [];
+            for (let i = 1; i <= sequence_length; i++) {
+                if (isSmithNumber(i)) {
+                    sequence.push(i);
+                }
+            }
+            output.innerHTML = "Smith Numbers: " + sequence.join(", ");
+        }
+
+        function isSmithNumber(num) {
+            let sum = 0;
+            let temp = num;
+            while (temp > 0) {
+                sum += temp % 10;
+                temp = Math.floor(temp / 10);
+            }
+            let primeFactorsSum = primeFactors(num).reduce((a, b) => a + b, 0);
+            return sum === primeFactorsSum;
+        }
+
+        function primeFactors(num) {
+            let factors = [];
+            while (num % 2 === 0) {
+                factors.push(2);
+                num = num / 2;
+            }
+            for (let i = 3; i <= Math.sqrt(num); i = i + 2) {
+                while (num % i === 0) {
+                    factors.push(i);
+                    num = num / i;
+                }
+            }
+            if (num > 2) {
+                factors.push(num);
+            }
+            return factors;
+        }
+    </script>
+
+</body>
+
+</html>
