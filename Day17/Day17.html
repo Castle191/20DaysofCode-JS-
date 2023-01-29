@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <style>
+      button {
+        padding: 10px 20px;
+        background-color: gray;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prime Factorization using Pollard's Rho Theorem</h1>
+    <input type="text" id="numberInput">
+    <button id="factorizeButton">Factorize</button>
+    <br>
+    <br>
+    <div id="output"></div>
+
+    <script>
+      const factorizeButton = document.getElementById("factorizeButton");
+      factorizeButton.addEventListener("click", function() {
+        const numberInput = document.getElementById("numberInput");
+        const number = parseInt(numberInput.value, 10);
+        const output = document.getElementById("output");
+
+        if (isNaN(number)) {
+          output.innerHTML = "Please enter a valid number.";
+          return;
+        }
+
+        const factors = pollardRho(number);
+        output.innerHTML = `The prime factors of ${number} are: ${factors}.`;
+      });
+
+      function pollardRho(n) {
+        if (n === 1) {
+          return [];
+        }
+
+        if (isPrime(n)) {
+          return [n];
+        }
+
+        let x = 2;
+        let y = 2;
+        let d = 1;
+        let c = Math.floor(Math.random() * n);
+
+        while (d === 1) {
+          x = (x * x + c) % n;
+          y = (y * y + c) % n;
+          y = (y * y + c) % n;
+          d = gcd(Math.abs(x - y), n);
+        }
+
+        if (d === n) {
+          return pollardRho(n);
+        } else {
+          return [...pollardRho(d), ...pollardRho(n / d)];
+        }
+      }
+
+      function gcd(a, b) {
+        if (b === 0) {
+          return a;
+        }
+
+        return gcd(b, a % b);
+      }
+
+      function isPrime(n) {
+        if (n <= 1) {
+          return false;
+        }
+
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+          if (n % i === 0) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
