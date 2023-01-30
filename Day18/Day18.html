@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Primorial Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    
+    body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background-color: #F5F5DC;
+    }
+    </style>
+</head>
+
+<body>
+    <script>
+        function calculatePrimorial() {
+            var n = parseInt(document.getElementById("input").value);
+            var primes = [];
+            var result = 1;
+
+            for (var i = 2; i <= n; i++) {
+                var isPrime = true;
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    primes.push(i);
+                }
+            }
+
+            for (var i = 0; i < primes.length; i++) {
+                result *= primes[i];
+            }
+
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+    <input type="text" id="input">
+    <button onclick="calculatePrimorial()">Calculate Primorial</button>
+    <div id="output"></div>
+</body>
+
+</html>
