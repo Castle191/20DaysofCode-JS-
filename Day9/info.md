@@ -1,5 +1,5 @@
 Day 9 |
 Topic of : Arithmetic |
-Simple Division |
+Simple Divisibilty Test |
 Input type : Integer |
 Output Type : Integer
