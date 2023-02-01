@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Super Prime Number Checker</title>
+    <title>Hardy-Ramanujan Theorem Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    
+    body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background-color: #F5F5DC;
+    }
+    </style>
+</head>
+
+<body>
+
+    <h1>Super Prime Number Checker</h1>
+
+    <p>Enter a number: <input type="number" id="inputNumber"></p>
+    <button onclick="checkSuperPrime()">Check</button>
+
+    <p id="output"></p>
+
+    <script>
+        function checkSuperPrime() {
+            var input = document.getElementById("inputNumber").value;
+            var isSuperPrime = true;
+
+            // Check if the number is prime
+            for (var i = 2; i <= Math.sqrt(input); i++) {
+                if (input % i == 0) {
+                    isSuperPrime = false;
+                    break;
+                }
+            }
+
+            // Check if the sum of its digits is also prime
+            if (isSuperPrime) {
+                var digitSum = 0;
+                var temp = input;
+                while (temp > 0) {
+                    digitSum += temp % 10;
+                    temp = Math.floor(temp / 10);
+                }
+
+                for (var i = 2; i <= Math.sqrt(digitSum); i++) {
+                    if (digitSum % i == 0) {
+                        isSuperPrime = false;
+                        break;
+                    }
+                }
+            }
+
+            if (isSuperPrime) {
+                document.getElementById("output").innerHTML = input + " is a super prime number.";
+            } else {
+                document.getElementById("output").innerHTML = input + " is not a super prime number.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
